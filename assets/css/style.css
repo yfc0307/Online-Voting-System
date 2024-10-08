@@ -1,0 +1,46 @@
+.navbar-brand img{
+   width: 10px;
+   height: auto;
+  
+}
+
+
+footer {
+   padding: 50px;
+  
+ }
+ footer {
+   border-top: 1px solid rgba(0, 0, 0, 0.09);
+ }
+ footer img {
+   margin-bottom: 30px;
+ }
+ footer h4 {
+   font-size: 20px;
+   margin-bottom: 35px;
+ }
+ footer ul {
+   list-style: none;
+   padding: 0;
+ }
+ footer ul a {
+   color: #707070;
+ }
+ footer a {
+   color: #f05f5c;
+ }
+ footer a:hover {
+   color: #f05f5c;
+ }
+ footer ul a:hover {
+   color: #707070;
+   text-decoration: none;
+   opacity: 0.8;
+ }
+ footer ul li {
+   margin-bottom: 10px;
+ }
+ footer ul {
+   float: left;
+   margin-right: 46px;
+ }
