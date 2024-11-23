@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 session_start();
-$k=$_SESSION['userid'];
+$k=$_SESSION['userName'];
 ?>
 
 <!doctype html>
@@ -24,13 +24,13 @@ $k=$_SESSION['userid'];
   <body>
        <!--navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-          <a class="navbar-brand" href="carsales.php">E-Voting</a>
+          <a class="navbar-brand" href="homepage.php">E-Voting</a>
           <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
               aria-expanded="false" aria-label="Toggle navigation"></button>
           <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 
-              <li class="nav-item active"><a class="nav-link" href="">Home <span class="sr-only">(current)</span></a></li>
+              <li class="nav-item active"><a class="nav-link" href="homepage.php">Home <span class="sr-only">(current)</span></a></li>
 
               
 
@@ -45,13 +45,13 @@ $k=$_SESSION['userid'];
               <li class="nav-item"></li>
 
             </ul>
-            <?php if( isset($_SESSION['userid']) && !empty($_SESSION['userid'])){?>
+            <?php if( isset($_SESSION['userName']) && !empty($_SESSION['userName'])){?>
                 <ul class='navbar-nav navbar-right'><li class='nav-item'><a class='nav-link' href=logout.php>Log Out</a></li></ul>
                
             <?php }else{ ?>
               <ul class='navbar-nav navbar-right'>
-                <li class='nav-item'><a href='signUp.php' class='nav-link'> Sign Up</a></li>
-                <li class='nav-item'><a href='logIn.php' class='nav-link'>Login</a></li>
+                <li class='nav-item'><a href='signuptest.php' class='nav-link'> Sign Up</a></li>
+                <li class='nav-item'><a href='logintest.php' class='nav-link'>Login</a></li>
                 </ul>
                 <?php } ?>
             
@@ -66,8 +66,8 @@ $k=$_SESSION['userid'];
     <?php
 include 'db.php';
 session_start();
-$user=$_SESSION['userid'];
-$sql = "select * from user where userId ='$user'";
+$user=$_SESSION['userName'];
+$sql = "select * from userInfo where username ='$user'";
     $result = mysqli_query($conn,$sql);
     echo "<h1><li class='list-group-item active'>Personal Information</li></h1>";
     $numOfRecord = mysqli_num_rows($result);
@@ -78,9 +78,8 @@ $sql = "select * from user where userId ='$user'";
           echo'<ul class="list-group">';
           echo "<b>Name: </b>" ."<li class='list-group-item col-md-6'>". $row["userName"] ."</li>". "<br>";
           echo "<b>User ID: </b>" ."<li class='list-group-item col-md-6'>". $row["userId"] ."</li>". "<br>";
-          echo "<b>E-mail: </b>" . "<li class='list-group-item col-md-6'>". $row["email"] ."</li>" . "<br>";
-          echo "<b>Phone Number: </b>" . "<li class='list-group-item col-md-6'>". $row["phone"] ."</li>" . "<br>";
-          echo "<b>Address: </b>" . "<li class='list-group-item col-md-6'>". $row["address"] ."</li>" . "<br>";
+          echo "<b>E-mail: </b>" . "<li class='list-group-item col-md-6'>". $row["userMail"] ."</li>" . "<br>";
+          echo "<b>Phone Number: </b>" . "<li class='list-group-item col-md-6'>". $row["userPhone"] ."</li>" . "<br>";
           echo'</ul>';
             
             echo "<u><a href=editper.php?userName=".$row["userName"].">Edit your information</a><br>";
