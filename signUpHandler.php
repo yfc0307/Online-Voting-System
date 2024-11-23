@@ -1,7 +1,3 @@
-
-
-  
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,40 +16,48 @@
   
   </head>
   <body>
-  
-  
+
 <div class="container">
-<div class="jumbotron">
-<?php
-    include 'db.php';
+  <div class="jumbotron">
+    <?php
+      include 'db.php';
 
-    $name = $_POST['username'];
-    $userid=$_POST['userid'];
-    $password=$_POST['password'];
-    $confirm=$_POST['confirm'];
-    $address=$_POST['address'];
-    $email=$_POST['email'];
-    $phone=$_POST['phone'];
+      $username = $_POST['userName'];
+      $email = $_POST['userMail'];
+      $password = $_POST['userPassword'];
+      $confirm_password = $_POST['confirm'];
+      $phone_number = $_POST['userPhone'];
 
-  if (strlen($password) < 5 || strlen($password) > 12) {	// check length
-	die ("Password < 5 or > 12 characters");
-	exit();
+      //check pw
+      if ($password !== $confirm_password) {
+          die("<div class='container mt-5 text-center'>Passwords do not match</div> </br>  <a type='submit'  class='btn btn-primary btn-block' role='button' href='javascript:history.go(-1)'>Go Back</a>");
+      }
+
+      // 檢查 userName 和 userMail 是否已存在
+      $sql_check = "SELECT * FROM userInfo WHERE userName = '$username' or userMail = '$email'";
+      $result = $conn->query($sql_check);
+
+      if ($result->num_rows > 0) {
+          die("<div class='text-center '>User Name or Email already exists</div></br>  <a type='submit'  class='btn btn-primary btn-block'  role='button' href='javascript:history.go(-1)'>Go Back</a>");
+          
+      }
+
+// 哈希密碼
+$hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+// 插入數據 (`userName`, `userMail`, `userPhone`)
+$sql_insert = "INSERT INTO userInfo (userName, userMail, userPhone, userPassword) 
+               VALUES ('$username', '$email', '$phone_number', '$hashed_password')";
+
+if ($conn->query($sql_insert) === TRUE) {
+  die("<div class='text-center '>Sign Up successful!</div></br>  <a type='submit'  class='btn btn-primary btn-block'  role='button' href='logintest.php'>Go to Login</a>");
+} else {
+    echo "Error: " . $conn->error;
 }
-  if (isset($userid) && isset($name) && isset($password) && isset($confirm)) {
-	$sql= "insert into user(userName,userId,password,email,phone,address) values ('$name','$userid','$password','$email','$phone','$address')";
-	if (mysqli_query($conn, $sql)) { 
-		echo "<p>The User added  successfully !<p><br>\n";
-	} 	else echo"<p>The query could not be executed!<p><br>\n" . mysqli_error($conn);
-}
-   ?>
-    
-    <a type="submit"  class="btn btn-primary btn-block"   role="button" href="carsales.php"> Back to Home Page </a>
-  </p>
+
+
+
+?>
 </div>
-
 </div>
-
-
-    
-  </body>
-</html>
+</body>

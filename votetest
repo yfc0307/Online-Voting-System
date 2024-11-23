@@ -1,0 +1,25 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Page</title>
+</head>
+<body>
+    <h1>Vote for your favorite option</h1>
+    <form method="post" action="">
+        <label>
+            <input type="radio" name="option" value="Option1"> Option 1
+        </label><br>
+        <label>
+            <input type="radio" name="option" value="Option2"> Option 2
+        </label><br>
+        <label>
+            <input type="radio" name="option" value="Option3"> Option 3
+        </label><br>
+        <input type="submit" value="Vote">
+    </form>
+</body>
+</html>
