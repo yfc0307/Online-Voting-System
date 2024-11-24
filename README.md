@@ -65,7 +65,7 @@ Windows:
 ## Example to use
 
 
-* After entering "http://localhost/Online-Voting-System/login.php" , sginup with your StudentID  or 8 Digit number.
+* After entering "http://localhost/Online-Voting-System/logintest.php" , sginup with your StudentID  or 8 Digit number.
 * Login to the Homepage, you can click Find vote to pick up a vote OR you can search for any vote.
 * At Find vote page will list the vote which able to  user to vote. 
 * List the reuslt, when the vote still going, it will show the total number of voters, vote options count in real time with charts. 
