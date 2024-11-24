@@ -18,8 +18,8 @@ Recognizing the inefficiencies of traditional methods, the university has create
 * Login/Logout
 * SignUp
 * Personal Info editing
-* vote searching
-* create Single chocie vote and multi chocie vote
+* vote searching (WIP)
+* create Single chocie vote and multi chocie vote (WIP)
  
 ## Programe language and environment
 
@@ -58,18 +58,18 @@ Windows:
 
 
 ```sh
-5. Enter following website by any web bowser: "http://localhost/Online-Voting-System/login.php"
+5. Enter following website by any web browser: "http://localhost/Online-Voting-System/logintest.php"
 ```
 
 
 ## Example to use
 
 
-* After entering "http://localhost/Online-Voting-System/logintest.php" , sginup with your StudentID  or 8 Digit number.
-* Login to the Homepage, you can click Find vote to pick up a vote OR you can search for any vote.
-* At Find vote page will list the vote which able to  user to vote. 
-* List the reuslt, when the vote still going, it will show the total number of voters, vote options count in real time with charts. 
-* Delete votes, Admin and creater of the vote can delete the vote anytime they want.
+* After entering "http://localhost/Online-Voting-System/logintest.php" , signup with your username, email and phone number.
+* Login to the Homepage, you can view your personal information.
+* At Find vote page will list the vote which able to user to vote. (WIP)
+* List the reuslt, when the vote still going, it will show the total number of voters, vote options count in real time with charts. (WIP)
+* Delete votes, Admin and creater of the vote can delete the vote anytime they want. (WIP)
 
 
 
